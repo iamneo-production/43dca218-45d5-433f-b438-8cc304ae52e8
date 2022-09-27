@@ -4,7 +4,7 @@ const  Navbar=()=> {
     const [navbar, setNavbar] = useState(false);
 
     return (
-        <nav className="w-full bg-gray-800 text-white shadow">
+        <nav className="w-full bg-gray-800 text-white shadow relative sticky top-0">
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -56,13 +56,13 @@ const  Navbar=()=> {
                         }`}
                     >
                         <ul className="items-center text-white justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                            <li className="text-gray-600 hover:text-blue-600">
+                            <li className="text-white hover:text-blue-600">
                                 <a href="/">Home</a>
                             </li>
-                            <li className="text-gray-600 hover:text-blue-600">
+                            <li className="text-white hover:text-blue-600">
                                 <a href="/login">Login</a>
                             </li>
-                            <li className="text-gray-600 hover:text-blue-600">
+                            <li className="text-white hover:text-blue-600">
                                 <a href="/signup">Sign Up</a>
                             </li>
                         </ul>
