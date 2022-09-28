@@ -1,0 +1,10 @@
+{
+    "data":[
+        {"id":"1","email":"uadha","userName":"kidh","password":"isjad","type":"0"},
+
+        {"id":"2","email":"uadha","userName":"kidh","password":"isjad","type":"0"},
+
+        {"id":"3","email":"uadha","userName":"kidh","password":"isjad","type":"1"}
+
+    ]
+}
