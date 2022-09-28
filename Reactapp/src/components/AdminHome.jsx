@@ -7,10 +7,6 @@ import {connect} from "react-redux";
 
 const AdminHome = ({isAuthenticated}) => {
 
-  if (isAuthenticated){
-    return <Navigate to="/" />
-  }
-
 
 
   return (
