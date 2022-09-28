@@ -1,0 +1,10 @@
+{
+    "data":[
+        {"id":"1","uEmail":"uadha","uName":"kidh","password":"isjad","uType":"0"},
+
+        {"id":"2","uEmail":"uadha","uName":"kidh","password":"isjad","uType":"0"},
+
+        {"id":"3","uEmail":"uadha","uName":"kidh","password":"isjad","uType":"1"}
+
+    ]
+}
