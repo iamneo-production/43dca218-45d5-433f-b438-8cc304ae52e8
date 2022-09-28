@@ -7,6 +7,12 @@ import Navbar from './components/Navbar';
 import Signup from './components/auth/Signup';
 import Home from './components/Home';
 import Credential from './components/Credential';
+import BankInfo from './components/BankInfo';
+import MediaLocker from './components/MediaLocker';
+import AdminHome from './components/AdminHome';
+
+
+
 
 function App() {
   return (
@@ -18,7 +24,13 @@ function App() {
                       <Route path="/" element={<Home/>}/>
                       <Route path="/login" element={<Login/>}/>
                       <Route path="/signup" element={<Signup/>}/>
-                      <Route path="/credentials" element={<Credential/>}/>
+                      <Route path="/cre" element={<Credential/>}/>
+                      <Route path="/bankinfo" element={<BankInfo/>}/>
+                      <Route path="/medialocker" element={<MediaLocker/>}/>
+                      <Route path="/adhome" element={<AdminHome/>}/>
+
+
+
                   </Routes>
           </Router>
       </Provider>
