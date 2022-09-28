@@ -1,51 +1,54 @@
-// package wiselocker.codejava;
+package wiselocker.codejava;
 
-// import java.util.List;
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.web.bind.annotation.RequestBody;
-// import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.bind.annotation.RequestMethod;
-// import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-// @RestController
-// public class controllers {
-// 	@Autowired
-// 	private SignupService signupservice;
+@RestController
+public class controllers {
+	@Autowired
+	private SignupService signupservice;
 	
-// 		/*SIGNUP*/
+		/*SIGNUP*/
 	
-// 	@RequestMapping(method=RequestMethod.POST, value="/signup", consumes="application/json")
-// 	public boolean addUser(@RequestBody UserModel usermodel)
-// 	{
-// 		signupservice.saveUser(usermodel);
-// 		return true;  /*check whether user already exists or not*/
-// 	}
+	@RequestMapping(method=RequestMethod.POST, value="/signup", consumes="application/json")
+	public boolean addUser(@RequestBody UserModel usermodel)
+	{
+		signupservice.saveUser(usermodel);
+		return true;  /*check whether user already exists or not*/
+	}
 	
-// 	/*LOGIN*/
+	/*LOGIN*/
 	
-// 	@RequestMapping(method=RequestMethod.POST, value="/login", consumes="application/json")
-// 	public boolean checkuser(@RequestBody UserModel usermodel)
-// 	{
-// 		if(signupservice.checkuser(usermodel))
-// 		{
-// 			return true;
-// 		}
-// 		else
-// 		{
-// 			return false;
-// 		}
-// 	}
+    @Autowired
+	private Loginservices loginservices;
+
+	@RequestMapping(method=RequestMethod.POST, value="/login", consumes="application/json")
+	public boolean checkuser(@RequestBody UserModel usermodel)
+	{
+		if(loginservices.checkuser(usermodel))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 	
-// 	@Autowired
-// 	private BankValutService bankvalutservice; 
+	@Autowired
+	private BankValutModelService bankvalutmodelservice; 
 	
-// 		/*GET ALL BANK INFORMATION*/
+		/*GET ALL BANK INFORMATION*/
 	
-// 	@RequestMapping(method=RequestMethod.GET, value="/bank", consumes="application/json")
-// 	public List<BankValutModel> getallbankdetails()
-// 	{
-// 		return bankvalutservice.getall();
-// 	}
+	@RequestMapping(method=RequestMethod.GET, value="/bank", consumes="application/json")
+	public List<BankValutModel> getallbankdetails()
+	{
+		return bankvalutmodelservice.getall();
+	}
 	
 	
 // 	/*ADD BANK INFORMATION*/
@@ -117,90 +120,90 @@
 	
 // 	@Autowired
 // 	private CredentialsService credentialsservice;
-// //	
-// //	/*GET CREDENTIALS INFO*/
-// //	
-// //	@RequestMapping(method=RequestMethod.GET, value="/credentials", consumes="application/json")
-// //	public List<CredentialsValutModel> getallcredentialsdetails()
-// //	{
-// //		return credentialsservice.getall();
-// //	}
-// //	
-// //
-// //	/*ADD CREDENTIALS INFORMATION*/
-// //	
-// //	@RequestMapping(method=RequestMethod.POST, value="/credentials/{id}", consumes="application/json")
-// //	public String addcredentialsdetails(@RequestBody String id)
-// //	{
-// //		credentialsservice.adddetails(id);
-// //		return "Credentials Added Successfully";
-// //	}
-// //	
-// //    /*UPDATE CREDENTIALS INFORMATION*/
-// //	
-// //	@RequestMapping(method=RequestMethod.PUT, value="/credentials/{id}", consumes="application/json")
-// //	public String updatedetails(@RequestBody String id) 
-// //	{
-// //		credentialsvalutservice.updatedetails(id);
-// //		return "Credentials Updated";
-// //	}
-// //	
-// //	/*DELETE CREDENTIALS INFORMATION*/
-// //	
-// //	@RequestMapping(method=RequestMethod.DELETE, value="/credentials/{id}", consumes="application/json")
-// //	public String deletedetails(@RequestBody String id) 
-// //	{
-// //		credentialsvalutservice.deletedetails(id);
-// //		return "Credentials Deleted";
-// //	}
-// //	
-// //	@Autowired
-// //	private Admin admin;
-// //	
-// //	/*GET ALL USERS INFO*/
-// //	
-// //	@RequestMapping(method=RequestMethod.GET, value="/admin/user", consumes="application/json")
-// //	public List<UserModel> getallusersdetails()
-// //	{
-// //		return admin.getall();
-// //	}
-// //	
-// //
-// //	/*APPROVE USER*/
-// //	
-// //	@RequestMapping(method=RequestMethod.POST, value="/admin/approveUser", consumes="application/json")
-// //	public String addcredentialsdetails(@RequestBody UserModel usermodel)
-// //	{
-// //		admin.approvedetails(usermodel);
-// //		return "Approved Successfully";
-// //	}
-// //	
-// //    /*UPDATE USER INFORMATION*/
-// //	
-// //	@RequestMapping(method=RequestMethod.PUT, value="admin/update/{id}", consumes="application/json")
-// //	public String updatedetailsuser(@RequestBody String id) 
-// //	{
-// //		admin.updatedetails(id);
-// //		return "User Updated";
-// //	}
-// //	
-// //	/*DELETE USER INFORMATION*/
-// //	
-// //	@RequestMapping(method=RequestMethod.DELETE, value="/admin/delete/{id}", consumes="application/json")
-// //	public String deletedetailsuser(@RequestBody String id) 
-// //	{
-// //		admin.deletedetails(id);
-// //		return "User Removed";
-// //	}
-// //	
-// //	/*GET SPECIFIC USER*/
-// //	
-// //	@RequestMapping(method=RequestMethod.DELETE, value="/admin/user/{id}", consumes="application/json")
-// //	public UserModel getuser(@RequestBody String id)
-// //	{
-// //		return admin.getuser(id);
-// //	}
-// //	
 	
-// }
+// 	/*GET CREDENTIALS INFO*/
+	
+// 	@RequestMapping(method=RequestMethod.GET, value="/credentials", consumes="application/json")
+// 	public List<CredentialsValutModel> getallcredentialsdetails()
+// 	{
+// 		return credentialsservice.getall();
+// 	}
+	
+
+// 	/*ADD CREDENTIALS INFORMATION*/
+	
+// 	@RequestMapping(method=RequestMethod.POST, value="/credentials/{id}", consumes="application/json")
+// 	public String addcredentialsdetails(@RequestBody String id)
+// 	{
+// 		credentialsservice.adddetails(id);
+// 		return "Credentials Added Successfully";
+// 	}
+	
+//    /*UPDATE CREDENTIALS INFORMATION*/
+	
+// 	@RequestMapping(method=RequestMethod.PUT, value="/credentials/{id}", consumes="application/json")
+// 	public String updatedetails(@RequestBody String id) 
+// 	{
+// 		credentialsvalutservice.updatedetails(id);
+// 		return "Credentials Updated";
+// 	}
+	
+// 	/*DELETE CREDENTIALS INFORMATION*/
+	
+// 	@RequestMapping(method=RequestMethod.DELETE, value="/credentials/{id}", consumes="application/json")
+// 	public String deletedetails(@RequestBody String id) 
+// 	{
+// 		credentialsvalutservice.deletedetails(id);
+// 		return "Credentials Deleted";
+// 	}
+	
+// 	@Autowired
+// 	private Admin admin;
+	
+// 	/*GET ALL USERS INFO*/
+	
+// 	@RequestMapping(method=RequestMethod.GET, value="/admin/user", consumes="application/json")
+// 	public List<UserModel> getallusersdetails()
+// 	{
+// 		return admin.getall();
+// 	}
+	
+
+// 	/*APPROVE USER*/
+	
+// 	@RequestMapping(method=RequestMethod.POST, value="/admin/approveUser", consumes="application/json")
+// 	public String addcredentialsdetails(@RequestBody UserModel usermodel)
+// 	{
+// 		admin.approvedetails(usermodel);
+// 		return "Approved Successfully";
+// 	}
+	
+//    /*UPDATE USER INFORMATION*/
+	
+// 	@RequestMapping(method=RequestMethod.PUT, value="admin/update/{id}", consumes="application/json")
+// 	public String updatedetailsuser(@RequestBody String id) 
+// 	{
+// 		admin.updatedetails(id);
+// 		return "User Updated";
+// 	}
+	
+// 	/*DELETE USER INFORMATION*/
+	
+// 	@RequestMapping(method=RequestMethod.DELETE, value="/admin/delete/{id}", consumes="application/json")
+// 	public String deletedetailsuser(@RequestBody String id) 
+// 	{
+// 		admin.deletedetails(id);
+// 		return "User Removed";
+// 	}
+	
+// 	/*GET SPECIFIC USER*/
+	
+// 	@RequestMapping(method=RequestMethod.DELETE, value="/admin/user/{id}", consumes="application/json")
+// 	public UserModel getuser(@RequestBody String id)
+// 	{
+// 		return admin.getuser(id);
+// 	}
+	
+	
+}
 

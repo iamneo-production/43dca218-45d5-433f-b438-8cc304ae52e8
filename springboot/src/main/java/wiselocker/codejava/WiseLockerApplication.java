@@ -1,13 +1,13 @@
-// package wiselocker.codejava;
+package wiselocker.codejava;
 
-// import org.springframework.boot.SpringApplication;
-// import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-// @SpringBootApplication
-// public class WiseLockerApplication {
+@SpringBootApplication
+public class WiseLockerApplication {
 
-// 	public static void main(String[] args) {
-// 		SpringApplication.run(WiseLockerApplication.class, args);
-// 	}
+	public static void main(String[] args) {
+		SpringApplication.run(WiseLockerApplication.class, args);
+	}
 
-// }
+}
