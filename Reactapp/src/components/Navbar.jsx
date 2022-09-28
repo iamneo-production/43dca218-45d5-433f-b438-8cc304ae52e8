@@ -65,6 +65,9 @@ const  Navbar=()=> {
                             <li className="text-gray-600 hover:text-blue-600">
                                 <a href="/signup">Sign Up</a>
                             </li>
+                            <li className="text-gray-600 hover:text-blue-600">
+                                <a href="/signup">Log out</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
