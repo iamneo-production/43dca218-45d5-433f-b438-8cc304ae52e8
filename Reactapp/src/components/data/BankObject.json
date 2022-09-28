@@ -1,12 +1,12 @@
 {
     "data":[
-        {"id":"1","item":"HDFC","accountName":"sdhask","accountNum":"878546","ifsc":"545asd","uName":"sdjah","password":"uahk"},
+        {"id":"1","bankName":"HDFC","accountName":"sdhask","accountNum":"878546","ifc":"545asd","userName":"sdjah","password":"uahk"},
 
-        {"id":"2","item":"SBI","accountName":"sdhask","accountNum":"878546","ifsc":"545asd","uName":"sdjah","password":"uahk"},
+        {"id":"2","bankName":"SBI","accountName":"sdhask","accountNum":"878546","ifc":"545asd","userName":"sdjah","password":"uahk"},
 
-        {"id":"3","item":"KVB","accountName":"sdhask","accountNum":"878546","ifsc":"545asd","uName":"sdjah","password":"uahk"},
+        {"id":"3","bankName":"KVB","accountName":"sdhask","accountNum":"878546","ifc":"545asd","userName":"sdjah","password":"uahk"},
 
-        {"id":"4","item":"AXIS","accountName":"sdhask","accountNum":"878546","ifsc":"545asd","uName":"sdjah","password":"uahk"}
+        {"id":"4","bankName":"AXIS","accountName":"sdhask","accountNum":"878546","ifc":"545asd","userName":"sdjah","password":"uahk"}
         
     ]
 }

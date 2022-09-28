@@ -1,10 +1,10 @@
 {
     "data":[
-        {"id":"1","uEmail":"uadha","uName":"kidh","password":"isjad","uType":"0"},
+        {"id":"1","email":"uadha","userName":"kidh","password":"isjad","type":"0"},
 
-        {"id":"2","uEmail":"uadha","uName":"kidh","password":"isjad","uType":"0"},
+        {"id":"2","email":"uadha","userName":"kidh","password":"isjad","type":"0"},
 
-        {"id":"3","uEmail":"uadha","uName":"kidh","password":"isjad","uType":"1"}
+        {"id":"3","email":"uadha","userName":"kidh","password":"isjad","type":"1"}
 
     ]
 }
