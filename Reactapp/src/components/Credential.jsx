@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {AiFillEye} from 'react-icons/ai';
 import {TiEdit} from "react-icons/ti";
 import {MdDelete} from "react-icons/md";
 import {connect} from "react-redux";
 import { Navigate } from 'react-router';
+import credata from "./data/CreObject.json";
 
 const Credential = ({isAuthenticated}) => {
+
+
+  const [data,setdata]  = useState({id:"",sourceName:"",userName:"",password:""})
+
+  const {id,sourceName,userName,password} = data;
+
+  
+  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value});
 
   if (isAuthenticated){
     return <Navigate to="/" />
   }
+
+  const view = (e) =>{
+    setdata(e);
+  }
+
+
 
   return (
     <div className="flex justify-center items-center mx-4 ">
@@ -22,6 +37,24 @@ const Credential = ({isAuthenticated}) => {
               </div>
           </div>
           <div className="mt-4 h-[390px] text- w-full overflow-x-auto overflow-x-hidden px-4 py-4">
+
+
+
+            {credata.data.map((value,index) =>{
+              return (
+                <div key={index} className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-red-400 w-full flex justify-between items-center">
+                  <div className="font-bold text-lg">{value.sourceName}</div>
+                  <div className="font-thin text-md">
+                    <div className="">Created On</div>
+                    <div className="">13-03-2021</div>
+                  </div>
+                  <div className="" onClick={e => view(value)} ><AiFillEye size="1.6rem"/></div>
+                  <div className=""><TiEdit size="1.6rem"/></div>
+                  <div className=""><MdDelete size="1.6rem"/></div>
+                </div>
+              )
+            })}
+
             <div className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-red-400 w-full flex justify-between items-center">
               <div className="font-bold text-lg">Facebook</div>
               <div className="font-thin text-md">
@@ -32,76 +65,7 @@ const Credential = ({isAuthenticated}) => {
               <div className=""><TiEdit size="1.6rem"/></div>
               <div className=""><MdDelete size="1.6rem"/></div>
             </div>
-            <div className="rounded-2xl px-8 text-white shadow-xl mb-4 border rounded-xl bg-red-400 w-full flex justify-between items-center">
-              <div className="font-bold text-lg">Facebook</div>
-              <div className="font-thin text-md">
-                <div className="">Created On</div>
-                <div className="">13-03-2021</div>
-              </div>
-              <div className=""><AiFillEye size="1.6rem"/></div>
-              <div className=""><TiEdit size="1.6rem"/></div>
-              <div className=""><MdDelete size="1.6rem"/></div>
-            </div>
-            <div className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-red-400 w-full flex justify-between items-center">
-              <div className="font-bold text-lg">Facebook</div>
-              <div className="font-thin text-md">
-                <div className="">Created On</div>
-                <div className="">13-03-2021</div>
-              </div>
-              <div className=""><AiFillEye size="1.6rem"/></div>
-              <div className=""><TiEdit size="1.6rem"/></div>
-              <div className=""><MdDelete size="1.6rem"/></div>
-            </div>
-            <div className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-red-400 w-full flex justify-between items-center">
-              <div className="font-bold text-lg">Facebook</div>
-              <div className="font-thin text-md">
-                <div className="">Created On</div>
-                <div className="">13-03-2021</div>
-              </div>
-              <div className=""><AiFillEye size="1.6rem"/></div>
-              <div className=""><TiEdit size="1.6rem"/></div>
-              <div className=""><MdDelete size="1.6rem"/></div>
-            </div>
-            <div className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-red-400 w-full flex justify-between items-center">
-              <div className="font-bold text-lg">Facebook</div>
-              <div className="font-thin text-md">
-                <div className="">Created On</div>
-                <div className="">13-03-2021</div>
-              </div>
-              <div className=""><AiFillEye size="1.6rem"/></div>
-              <div className=""><TiEdit size="1.6rem"/></div>
-              <div className=""><MdDelete size="1.6rem"/></div>
-            </div>
-            <div className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-red-400 w-full flex justify-between items-center">
-              <div className="font-bold text-lg">Facebook</div>
-              <div className="font-thin text-md">
-                <div className="">Created On</div>
-                <div className="">13-03-2021</div>
-              </div>
-              <div className=""><AiFillEye size="1.6rem"/></div>
-              <div className=""><TiEdit size="1.6rem"/></div>
-              <div className=""><MdDelete size="1.6rem"/></div>
-            </div>
-            <div className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-red-400 w-full flex justify-between items-center">
-              <div className="font-bold text-lg">Facebook</div>
-              <div className="font-thin text-md">
-                <div className="">Created On</div>
-                <div className="">13-03-2021</div>
-              </div>
-              <div className=""><AiFillEye size="1.6rem"/></div>
-              <div className=""><TiEdit size="1.6rem"/></div>
-              <div className=""><MdDelete size="1.6rem"/></div>
-            </div>
-            <div className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-red-400 w-full flex justify-between items-center">
-              <div className="font-bold text-lg">Facebook</div>
-              <div className="font-thin text-md">
-                <div className="">Created On</div>
-                <div className="">13-03-2021</div>
-              </div>
-              <div className=""><AiFillEye size="1.6rem"/></div>
-              <div className=""><TiEdit size="1.6rem"/></div>
-              <div className=""><MdDelete size="1.6rem"/></div>
-            </div>
+            
           </div>
         </div>
 
@@ -117,9 +81,21 @@ const Credential = ({isAuthenticated}) => {
                 </form>
             </div>
             <div className="py-4 mt-8 px-2">
-              <input type="text" className="mx-4 w-8/12 mb-4 shadow-lg py-2 px-2 text-md text-black " placeholder="Source Name" name="sname" required  />
-              <input type="text" className="mx-4 w-8/12 mb-4 shadow-lg py-2 px-2 text-md text-black " placeholder="Username" name="username" required  />
-              <input type="text" className="mx-4 w-8/12 mb-4 shadow-lg py-2 px-2 text-md text-black " placeholder="password" name="password" required  />
+              <input type="text" className="mx-4 w-8/12 mb-4 shadow-lg py-2 px-2 text-md text-black "  
+                        onChange={e => onChange(e)}
+                        value={sourceName}
+                        required
+                        placeholder="Source Name" name="sourceName" required  />
+              <input type="text" className="mx-4 w-8/12 mb-4 shadow-lg py-2 px-2 text-md text-black " 
+                        onChange={e => onChange(e)}
+                        value={userName}
+                        required
+                        placeholder="Username" name="userName" required  />
+              <input type="text" className="mx-4 w-8/12 mb-4 shadow-lg py-2 px-2 text-md text-black " 
+                            onChange={e => onChange(e)}
+                            value={password}
+                            required
+                            placeholder="password" name="password" required  />
             </div>
 
             <div className="flex justify-end mx-2">
