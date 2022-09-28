@@ -1,7 +1,12 @@
 import React from 'react';
+import { Navigate } from 'react-router';
+import {connect} from "react-redux";
 
-const Home = () => {
+const Home  = ({isAuthenticated}) => {
 
+  if (isAuthenticated){
+    return <Navigate to="/" />
+  }
     return(
         <div className="flex justify-center items-center mx-4 mt-12 ">
       <div className=" flex justify-between mt-16 border-2 rounded-xl shadow-xl w-10/12">
@@ -35,5 +40,12 @@ const Home = () => {
 }
 
 
-export default Home;
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+
+
+export default connect(mapStateToProps, null)(Home);
 

@@ -2,8 +2,16 @@ import React from 'react';
 import {AiFillEye} from 'react-icons/ai';
 import {TiEdit} from "react-icons/ti";
 import {MdDelete} from "react-icons/md";
+import {connect} from "react-redux";
+import { Navigate } from 'react-router';
 
-export default function BankInfo() {
+const BankInfo = ({isAuthenticated}) => {
+
+  if (isAuthenticated){
+    return <Navigate to="/" />
+  }
+
+
   return (
     <div className="flex justify-center items-center mx-4 ">
       <div className=" flex justify-between mt-16 border-2 rounded-xl shadow-xl w-10/12">
@@ -135,3 +143,15 @@ export default function BankInfo() {
     </div>
   )
 }
+
+
+
+
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+
+
+export default connect(mapStateToProps, null)(BankInfo);

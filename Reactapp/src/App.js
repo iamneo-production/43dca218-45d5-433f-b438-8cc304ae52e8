@@ -12,8 +12,6 @@ import MediaLocker from './components/MediaLocker';
 import AdminHome from './components/AdminHome';
 
 
-
-
 function App() {
   return (
     <div className="App">

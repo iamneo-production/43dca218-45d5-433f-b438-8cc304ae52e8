@@ -1,7 +1,9 @@
 import React,{useState}  from 'react';
 import { connect } from "react-redux";
+import { login } from '../../actions/auth';
+import { Link, Navigate } from 'react-router-dom';
 
-const Loginpage = () => {
+const Loginpage = ({login, isAuthenticated}) => {
 
     const [formData, setFormData] = useState({
         email:'',
@@ -11,11 +13,13 @@ const Loginpage = () => {
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value});
     const onSubmit = e => {
         e.preventDefault();
-        // login(email,password);
-
+        login(email,password);
         console.log(email,password);
     }
     
+    if (isAuthenticated){
+        return <Navigate to="/" />
+    }   
 
     return (
         <>
@@ -45,7 +49,7 @@ const Loginpage = () => {
                                     name="password" 
                                     
                                     value={password}
-                                    minLength='8'
+                                    minLength='6'
                                     
                                     onChange={e => onChange(e)}
                                     required
@@ -78,6 +82,13 @@ const Loginpage = () => {
     );
 }
 
-export default connect(null, null)(Loginpage);
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+
+
+export default connect(mapStateToProps, {login})(Loginpage);
 
 

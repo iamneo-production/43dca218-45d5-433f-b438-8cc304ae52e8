@@ -1,8 +1,10 @@
 import React,{useState} from 'react';
 import {connect} from "react-redux";
+import { Link,  Navigate, useNavigate } from 'react-router-dom';
+import { signup } from '../../actions/auth';
 
 
-const Signup = () => {
+const Signup = ({signup, isAuthenticated}) => {
     const [accountCreated, setAccountCreated] = useState(false);
     const [formData, setFormData] = useState({
         username:'',
@@ -12,6 +14,8 @@ const Signup = () => {
         cpassword:'',
 
     });
+    
+    const navigate = useNavigate();
 
     const {email, password, username, cpassword,mobile} = formData;
     
@@ -21,12 +25,17 @@ const Signup = () => {
     const onSubmit = e => {
         e.preventDefault();
         if(password === cpassword){
-            // signup( username,, last_name,email, password, re_password);
-            console.log(username,email,password,cpassword,mobile);
+            signup( username,email,mobile, password, cpassword);
             setAccountCreated(true);
         }
     }
 
+    if (isAuthenticated){
+        return <Navigate to="/" />
+    }
+    if (accountCreated){
+        return <Navigate to="/login" />
+    }
 
 
 
@@ -121,6 +130,10 @@ const Signup = () => {
 }
 
 
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
 
 
-export default connect(null, null)(Signup);
+
+export default connect(mapStateToProps, {signup})(Signup);
