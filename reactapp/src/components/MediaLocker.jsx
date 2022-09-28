@@ -2,9 +2,6 @@ import React from 'react';
 import {AiFillEye} from 'react-icons/ai';
 import {TiEdit} from "react-icons/ti";
 import {MdDelete} from "react-icons/md";
-
-
-
 export default function MediaLocker() {
   return (
     <div className="flex justify-center items-center mx-4 ">
@@ -111,15 +108,10 @@ export default function MediaLocker() {
                     </div>
                 </form>
             </div>
-            handleChangeImage = e => {
-                  this.setState({[e.target.name]: URL.createObjectURL(e.target.files[0])})
-            }
             <div className="py-4 mt-8 px-2">
               <input type="text" className="mx-4 w-8/12 mb-4 shadow-lg py-2 px-2 text-md text-black " placeholder="Enter the source Name" name="sname" required  />
-              {/* <input type="text" className="mx-4 w-8/12 mb-4 shadow-lg py-2 px-2 text-md text-black " placeholder="Username" name="username" required  /> */}
-             <input onChange={ this.handleChange } type="file" className="mx-4 w-8/12 mb-4 shadow-lg py-2 px-2 text-md text-black " placeholder="password" name="password" required  />*/}
-              {/*<input type="file" id="img" name="img" accept="image/*" className="w-100" onChange={this.handleChangeImage}/>*/}
-              <img src={this.state.img} alt="img"/>
+              <input type="text" className="mx-4 w-8/12 mb-4 shadow-lg py-2 px-2 text-md text-black " placeholder="Username" name="username" required  /> 
+             
             </div>
             <div className="flex justify-end mx-2">
               <div className="w-6/12 flex justify-center">
