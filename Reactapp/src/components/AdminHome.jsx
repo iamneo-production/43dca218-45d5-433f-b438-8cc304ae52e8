@@ -95,7 +95,7 @@ const AdminHome = ({isAuthenticated}) => {
           <div className="font-bold text-lg">Users</div>
             {jsondata.data.map((value,index) => {
               return(
-                  <div className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-red-400 w-full flex justify-between items-center">
+                  <div className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-gray-200 w-full flex justify-between items-center">
                     <div className="font-bold text-lg">{value.userName}</div>
                     <div className="font-thin text-md">
                       <div className="">Created On</div>

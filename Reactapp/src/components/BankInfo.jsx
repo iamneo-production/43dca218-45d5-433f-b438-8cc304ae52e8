@@ -82,7 +82,7 @@ const BankInfo = ({isAuthenticated}) => {
           <div className="mt-4 h-[390px] text- w-full overflow-x-auto overflow-x-hidden px-4 py-4">
             {jsondata.data.map((value,index)=> {
               return (
-                <div className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-red-400 w-full flex justify-between items-center">
+                <div className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-gray-200 w-full flex justify-between items-center">
                   <div className="font-bold text-lg">{value.bankName}</div>
                   <div className="font-thin text-md">
                     <div className="">Created On</div>
@@ -136,11 +136,6 @@ const BankInfo = ({isAuthenticated}) => {
 
         </div>
       </div>
-
-
-      
-
-
     </div>
   )
 }

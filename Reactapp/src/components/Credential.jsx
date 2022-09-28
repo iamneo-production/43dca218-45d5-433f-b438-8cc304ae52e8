@@ -86,7 +86,7 @@ const Credential = ({isAuthenticated}) => {
 
             {credata.data.map((value,index) =>{
               return (
-                <div key={index} className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-red-400 w-full flex justify-between items-center">
+                <div key={index} className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-gray-200 w-full flex justify-between items-center">
                   <div className="font-bold text-lg">{value.sourceName}</div>
                   <div className="font-thin text-md">
                     <div className="">Created On</div>
@@ -98,17 +98,6 @@ const Credential = ({isAuthenticated}) => {
                 </div>
               )
             })}
-
-            <div className="rounded-2xl px-8 shadow-xl mb-4 border rounded-xl bg-red-400 w-full flex justify-between items-center">
-              <div className="font-bold text-lg">Facebook</div>
-              <div className="font-thin text-md">
-                <div className="">Created On</div>
-                <div className="">13-03-2021</div>
-              </div>
-              <div className=""><AiFillEye size="1.6rem"/></div>
-              <div className=""><TiEdit size="1.6rem"/></div>
-              <div className=""><MdDelete size="1.6rem"/></div>
-            </div>
             
           </div>
         </div>
