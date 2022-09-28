@@ -9,20 +9,64 @@ import credata from "./data/CreObject.json";
 const Credential = ({isAuthenticated}) => {
 
 
-  const [data,setdata]  = useState({id:"",sourceName:"",userName:"",password:""})
+  const [data,setdata]  = useState({id:"",sourceName:"",userName:"",password:"",cpassword:""})
 
-  const {id,sourceName,userName,password} = data;
+  const {id,sourceName,userName,password,cpassword} = data;
+  
+  const [viewcon,setview] = useState();
+
+  const [check ,setcheck] = useState("false");
+
+  const [alert,setalert] = useState("true");
+
+  const [ver,setver] = useState("Verify");
+
+
+  const checkSubmit = (e) =>{
+    e.preventDefault();
+    console.log(e);
+    console.log(cpassword);
+    if(cpassword === "12345678"){
+      setcheck("true");
+      setver("verified");
+    }
+    console.log(alert);
+  }
+
+
 
   
-  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value});
+  const onChange = e => setdata({ ...data, [e.target.name]: e.target.value});
 
   if (isAuthenticated){
     return <Navigate to="/" />
   }
 
   const view = (e) =>{
-    setdata(e);
+    if(check === "true"){
+      setdata(e);
+      setview("hidden");
+      setalert("true");
+    }else{
+      setalert("false")
+    }
+
+    // console.log(alert);
   }
+
+  const edit = (e) =>{
+    if(check === "true"){
+      setdata(e);
+      setview("");
+      setalert("true");
+    }else{
+      setalert("flase");
+    }
+  }
+
+  const dlt = (e) =>{
+    console.log("delete");
+  } 
 
 
 
@@ -49,8 +93,8 @@ const Credential = ({isAuthenticated}) => {
                     <div className="">13-03-2021</div>
                   </div>
                   <div className="" onClick={e => view(value)} ><AiFillEye size="1.6rem"/></div>
-                  <div className=""><TiEdit size="1.6rem"/></div>
-                  <div className=""><MdDelete size="1.6rem"/></div>
+                  <div className="" onClick={e => edit(value)} ><TiEdit size="1.6rem"/></div>
+                  <div className="" onClick={e => dlt(value)} ><MdDelete size="1.6rem"/></div>
                 </div>
               )
             })}
@@ -71,13 +115,21 @@ const Credential = ({isAuthenticated}) => {
 
         <div className="w-6/12 h-[472px]  border-l-2 rounded-l-3xl bg-[#EEF2E6]">
 
-            <div className="mt-8 mx-2 w-full flex items-center justify-center border-b-2 py-4">
-                <form action="" className="flex w-8/12 justify-between mt-2 items-center">
-                    
-                        <input type="text" className="mx-4 w-full py-2 px-2 text-md text-black " placeholder="Enter your password to continue" name="password" required  />
-                        <div className="bg-blue-500 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-blue-600 ">
-                        Check
-                    </div>
+                          <div className={`text-red-800 mt-4 font-bold text-sm`}>
+                              Please enter the passsword to view 
+                            </div>
+
+            <div className="mt-4 mx-2 w-full flex items-center justify-center border-b-2 py-4">
+                
+                <form onSubmit={e => checkSubmit(e)} className="flex w-8/12 justify-between mt-2 items-center">
+                        
+                        <input type="password" className="mx-4 w-full py-2 px-2 text-md text-black " placeholder="Enter your password to continue" 
+                                    value={cpassword}
+                                    onChange={e => onChange(e)}
+                                    name="cpassword" required  />
+                        <button type="submit" className={check ? "bg-green-500 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-green-600 " : "bg-blue-500 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-blue-600 " }>
+                        {ver}
+                    </button>
                 </form>
             </div>
             <div className="py-4 mt-8 px-2">
@@ -98,7 +150,7 @@ const Credential = ({isAuthenticated}) => {
                             placeholder="password" name="password" required  />
             </div>
 
-            <div className="flex justify-end mx-2">
+            <div className={`flex justify-end mx-2 ${viewcon}`}>
               <div className="w-6/12 flex justify-center">
                 <div className="px-4 py-2 bg-blue-500 hover:bg-blue-600 hover:cursor-pointer rounded text-white">new/update</div>
               </div>
